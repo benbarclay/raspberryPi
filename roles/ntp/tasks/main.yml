@@ -1,0 +1,4 @@
+#timedatectl
+#install ntp
+#enable/start ntpd
+#timedatectl set-ntp 1
