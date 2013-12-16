@@ -1,0 +1,7 @@
+---
+
+- name: install latest sqlite
+  pacman: name=sqlite 
+          state=installed
+          update_cache=yes
+  sudo: yes
