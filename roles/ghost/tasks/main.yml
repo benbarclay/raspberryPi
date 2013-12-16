@@ -1,0 +1,19 @@
+---
+- name: ensure /opt/ghost exist
+  file: path=/opt/ghost
+        state=directory
+        owner=ben
+  sudo: yes
+
+- name: checkout Ghost
+  git: repo=https://github.com/TryGhost/Ghost.git
+       version=master
+       dest=/opt/ghost
+
+- name: npm install
+  npm: path=/opt/ghost
+       state=present
+
+- name: grunt init
+  command: grunt init
+           chdir=/opt/ghost

@@ -1,0 +1,4 @@
+---
+dependencies:
+  - { role: grunt }
+  - { role: sqlite }
