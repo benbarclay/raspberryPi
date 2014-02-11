@@ -5,15 +5,36 @@
         owner=ben
   sudo: yes
 
-- name: checkout Ghost
-  git: repo=https://github.com/TryGhost/Ghost.git
-       version=master
-       dest=/opt/ghost
+- name: download Ghost
+  get_url: url=https://ghost.org/zip/ghost-0.3.3.zip
+           dest=/opt/ghost-0.3.3.zip
+  sudo: yes
+
+- name: unzip Ghost
+  unarchive: src=/opt/ghost-0.3.3.zip
+             dest=/opt/ghost/
 
 - name: npm install
   npm: path=/opt/ghost
        state=present
+       production=yes
+  environment:
+    PYTHON: python2
 
-- name: grunt init
-  command: grunt init
-           chdir=/opt/ghost
+- name: download systemd script
+  get_url: url=https://raw2.github.com/TryGhost/Ghost-Config/master/systemd/ghost.service
+           dest=/etc/systemd/system/ghost.service
+  sudo: yes
+
+- name: set the service working directory
+  lineinfile: dest=/etc/systemd/system/ghost.service
+              regexp=WorkingDirectory
+              line=WorkingDirectory=/opt/ghost
+              state=present
+  sudo: yes
+
+- name: start and enable the ghost service
+  service: name=ghost
+           enabled=yes
+           state=started
+  sudo: yes

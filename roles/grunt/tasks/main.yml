@@ -3,5 +3,5 @@
 - name: install grunt
   npm: name=grunt-cli
        global=yes
-       state=latest 
+       state=present 
   sudo: yes
