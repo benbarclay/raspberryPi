@@ -1,0 +1,20 @@
+- name: install openssh
+  pacman: name=openssh
+          state=installed
+  sudo: yes
+
+- name: configure sshd_config
+  template: src=templates/sshd_config
+            dest=/etc/ssh/sshd_config
+			owner=root
+			group=root
+			mode=644
+  sudo: yes
+  notify:
+    - reload sshd
+	
+- name: start and enable sshd
+  service: name=sshd
+           enabled=yes
+           state=started
+  sudo: yes

@@ -2,4 +2,8 @@
 - hosts: localhost
   connection: local
   roles:
+    - ssh
+    - fstab
+	- ntp
+	- netatalk
     - ghost

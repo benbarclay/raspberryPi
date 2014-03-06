@@ -1,4 +1,10 @@
-#timedatectl
-#install ntp
-#enable/start ntpd
-#timedatectl set-ntp 1
+- name: install ntp
+  pacman: name=ntp
+          state=installed
+  sudo: yes
+  
+- name: start and enable ntpd
+  service: name=ntpd
+           enabled=yes
+           state=started
+  sudo: yes

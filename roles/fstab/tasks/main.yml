@@ -1,1 +1,7 @@
-# save config
+- name: set fstab
+  template: src=templates/fstab
+            dest=/etc/fstab
+			owner=root
+			group=root
+			mode=644
+  sudo: yes

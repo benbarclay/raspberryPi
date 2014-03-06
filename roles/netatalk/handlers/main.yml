@@ -1,0 +1,4 @@
+- name: reload netatalk
+  service: name=netatalk
+           state=reloaded
+  sudo: yes
