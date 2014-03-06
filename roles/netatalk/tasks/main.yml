@@ -6,9 +6,9 @@
 - name: configure afp.conf
   template: src=templates/afp.conf
             dest=/etc/afp.conf
-			owner=root
-			group=root
-			mode=644
+            owner=root
+            group=root
+            mode=644
   sudo: yes
   notify:
     - reload netatalk
