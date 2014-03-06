@@ -1,4 +1,4 @@
 - name: reload sshd
-  system: name=sshd
+  service: name=sshd
           state=reloaded
   sudo: yes
