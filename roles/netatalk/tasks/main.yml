@@ -4,7 +4,7 @@
   sudo: yes
 
 - name: configure afp.conf
-  template: src=templates/afp.conf
+  template: src=afp.conf
             dest=/etc/afp.conf
             owner=root
             group=root

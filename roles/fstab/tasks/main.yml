@@ -1,5 +1,5 @@
 - name: set fstab
-  template: src=templates/fstab
+  template: src=fstab
             dest=/etc/fstab
             owner=root
             group=root
