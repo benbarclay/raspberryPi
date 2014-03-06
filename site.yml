@@ -4,6 +4,6 @@
   roles:
     - ssh
     - fstab
-	- ntp
-	- netatalk
+    - ntp
+    - netatalk
     - ghost
