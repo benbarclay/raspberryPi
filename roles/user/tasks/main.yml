@@ -1,0 +1,9 @@
+---
+
+- name: create standard user
+  user: name={{user}}
+        password={{password}}
+        update_password=on_create
+        append=yes
+        groups=wheel
+        state=present

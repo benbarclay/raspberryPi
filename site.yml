@@ -2,7 +2,10 @@
 - hosts: localhost
   connection: local
   roles:
+    - user
+    - sudo
     - ssh
     - fstab
     - ntp
     - netatalk
+    - vim
