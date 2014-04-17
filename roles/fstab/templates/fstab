@@ -1,7 +1,6 @@
-#
-# /etc/fstab: static file system information
-#
-# <file system>        <dir>         <type>    <options>          <dump> <pass>
-/dev/mmcblk0p5  /boot           vfat    defaults        0       0
-LABEL=timecapsule  /mnt/timecapsule  ext4  defaults,nofail  0  2
-LABEL=media  /mnt/media  ext4  defaults,nofail  0  2
+# <file system>    <dir>            <type> <options>        <dump> <pass>
+proc               /proc            proc   defaults         0      0
+/dev/mmcblk0p5     /boot            vfat   defaults         0      2
+/dev/mmcblk0p6     /                ext4   defaults,noatime 0      1
+LABEL=timecapsule  /mnt/timecapsule ext4   defaults,nofail  0      2
+LABEL=media        /mnt/media       ext4   defaults,nofail  0      2
