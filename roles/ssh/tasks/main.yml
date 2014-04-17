@@ -1,6 +1,6 @@
 - name: install openssh
-  pacman: name=openssh
-          state=installed
+  apt:  pkg=openssh-server
+        state=present
   sudo: yes
 
 - name: configure sshd_config
@@ -9,12 +9,13 @@
             owner=root
             group=root
             mode=644
+            backup=yes
   sudo: yes
   notify:
     - reload sshd
 
-- name: start and enable sshd
-  service: name=sshd
+- name: start and enable ssh
+  service: name=ssh
            enabled=yes
            state=started
   sudo: yes
