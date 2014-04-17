@@ -1,11 +1,9 @@
 ---
 - name: install sudo
-  pacman: name=sudo
-          state=installed
+  apt:  pkg=sudo
+        state=present
   sudo: yes
 
 - name: configure sudo
-  lineinfile: dest=/etc/sudoers
-              line="%wheel ALL=(ALL) NOPASSWD. ALL"
-              regexp="%wheel ALL=(ALL) NOPASSWD. ALL"
-              state=present
+  template: dest=/etc/sudoers
+            src=sudoers
