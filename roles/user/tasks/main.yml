@@ -5,5 +5,10 @@
         password={{password}}
         update_password=on_create
         append=yes
-        groups=wheel
+        groups=sudo
         state=present
+
+- name: ensure pi user is gone
+  user: name=pi
+        remove=yes
+        state=absent
