@@ -4,4 +4,17 @@
             owner=root
             group=root
             mode=644
-  sudo: yes
+
+- name: ensure /mnt/timecapsule exists
+  file: path=/mnt/timecapsule
+        state=directory
+        owner=root
+        group=root
+        mode=777
+
+- name: ensure /mnt/media exists
+  file: path=/mnt/media
+        state=directory
+        owner=root
+        group=root
+        mode=777
