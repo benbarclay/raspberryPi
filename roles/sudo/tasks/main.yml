@@ -2,7 +2,6 @@
 - name: install sudo
   apt:  pkg=sudo
         state=present
-  sudo: yes
 
 - name: configure sudo
   template: dest=/etc/sudoers
