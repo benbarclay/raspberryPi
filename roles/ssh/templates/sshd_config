@@ -13,5 +13,4 @@ ChallengeResponseAuthentication no
 UsePAM yes
 PrintMotd no
 UsePrivilegeSeparation sandbox
-Subsystem	sftp	/usr/lib/ssh/sftp-server
-
+Subsystem	sftp	/usr/lib/openssh/sftp-server

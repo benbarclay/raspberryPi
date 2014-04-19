@@ -1,7 +1,6 @@
 - name: install openssh
   apt:  pkg=openssh-server
         state=present
-  sudo: yes
 
 - name: configure sshd_config
   template: src=sshd_config
@@ -10,12 +9,10 @@
             group=root
             mode=644
             backup=yes
-  sudo: yes
   notify:
-    - reload sshd
+    - reload ssh
 
 - name: start and enable ssh
   service: name=ssh
            enabled=yes
            state=started
-  sudo: yes
