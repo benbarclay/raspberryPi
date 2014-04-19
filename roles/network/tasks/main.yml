@@ -1,0 +1,6 @@
+- name: configure /etc/network/interfaces
+  template: src=interfaces
+            dest=/etc/network/interfaces
+            owner=root
+            group=root
+            mode=644
