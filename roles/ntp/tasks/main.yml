@@ -1,10 +1,8 @@
 - name: install ntp
-  pacman: name=ntp
-          state=installed
-  sudo: yes
-  
-- name: start and enable ntpd
-  service: name=ntpd
+  apt: pkg=ntp
+       state=present
+
+- name: start and enable ntp
+  service: name=ntp
            enabled=yes
            state=started
-  sudo: yes
