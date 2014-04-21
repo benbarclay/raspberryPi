@@ -1,6 +1,5 @@
 ---
-- hosts: localhost
-  connection: local
+- hosts: "{{hostname}}"
   roles:
     - user
     - sudo
