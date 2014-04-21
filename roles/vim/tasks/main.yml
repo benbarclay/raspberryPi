@@ -1,5 +1,5 @@
 ---
 - name: install vim
-  pacman: name=vim
-          state=installed
+  apt:  package=vim
+        state=present
   sudo: yes
