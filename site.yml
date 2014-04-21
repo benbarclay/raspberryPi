@@ -6,6 +6,7 @@
     - sudo
     - ssh
     - fstab
+    - network
     - ntp
     - netatalk
     - vim
