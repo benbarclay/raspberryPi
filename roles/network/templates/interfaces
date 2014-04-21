@@ -3,11 +3,11 @@ auto lo
 iface lo inet loopback
 
 iface eth0 inet static
-address 192.168.1.2
-netmask 255.255.255.0
-network 192.168.1.0
-broadcast 192.168.1.255
-gateway 192.168.1.1
+address {{address}}
+netmask {{netmask}}
+network {{network}}
+broadcast {{broadcast}}
+gateway {{gateway}}
 
 allow-hotplug wlan0
 iface wlan0 inet manual
