@@ -1,0 +1,39 @@
+- name: Install GPG key for btsync
+  apt_key:  id=6BF18B15
+            state=present
+            url=http://stinkfoot.org:11371/pks/lookup?op=get&search=0x40FC0CD26BF18B15
+
+- name: Install apt_repository dependency
+  apt:  pkg=python-pycurl
+        state=present
+
+- name: Add the deb repo for btsync
+  apt_repository: repo='deb http://debian.yeasoft.net/btsync wheezy main'
+                  state=present
+
+- name: Install btsync
+  apt:  pkg=btsync
+        state=installed
+
+- name: Create the sync directories
+  file: path={{item.dir}}
+        state=directory
+        mode=777
+  with_items: btsync
+
+- name: Configure btsync
+  template: src=btsync.conf
+            dest=/etc/btsync/btsync.conf
+            group=root
+            owner=root
+            mode=0600
+  notify: restart btsync
+
+- name: Remove default config
+  file: path=/etc/btsync/debconf-default.conf
+        state=absent
+
+- name: Start and enable the btsync service
+  service:  name=btsync
+            enabled=yes
+            state=started
