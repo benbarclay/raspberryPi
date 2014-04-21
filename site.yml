@@ -11,3 +11,6 @@
     - netatalk
     - vim
     - btsync
+  vars_files:
+    - vars.yml
+  sudo: yes
