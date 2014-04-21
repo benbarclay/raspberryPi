@@ -1,0 +1,14 @@
+---
+hostname:
+address:
+netmask:
+network:
+broadcast:
+gateway:
+
+user:
+password:
+
+btsync:
+  - dir:
+    secret:
