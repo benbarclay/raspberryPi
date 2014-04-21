@@ -1,3 +1,17 @@
+- name: configure /etc/hostname
+  template: src=hostname
+            dest=/etc/hostname
+            owner=root
+            group=root
+            mode=644
+
+- name: configure /etc/hosts
+  template: src=hosts
+            dest=/etc/hosts
+            owner=root
+            group=root
+            mode=644
+
 - name: configure /etc/network/interfaces
   template: src=interfaces
             dest=/etc/network/interfaces
