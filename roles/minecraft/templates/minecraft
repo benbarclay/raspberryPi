@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# minecraft - Startup script for minecraft
+
+# chkconfig: 35 85 15
+# description: Uses spigot to run a minecraft server
+# processname: spigot
+
+start()
+{
+  echo -n $"Starting spigot: "
+  sudo java -Xms128M -Xmx256M -jar /opt/spigot.jar nogui
+}
+
+case "$1" in
+  start)
+    start
+    ;;
+  *)
+    echo "Usage: $0 {start}"
+    RETVAL=1
+esac
+
+exit $RETVAL
+
+

@@ -1,0 +1,14 @@
+---
+
+- name: download latest spigot build
+  get_url:  url=http://ci.md-5.net/job/Spigot/lastStableBuild/artifact/Spigot-Server/target/spigot.jar
+            dest=/opt
+            force=yes
+            mode=111
+  sudo: yes
+
+- name: set up spigot as a service
+  template:   src=minecraft
+              dest=/etc/init.d/minecraft
+              mode=755
+  sudo: yes

@@ -1,0 +1,5 @@
+---
+
+- name: install jdk 8
+  apt:  name=oracle-java8-jdk
+        state=latest
