@@ -37,15 +37,16 @@
   #command:  action=make install
             #chdir=/usr/local/src/netatalk-3.1.1/
 
-- name: configure afp.conf
-  template: src=afp.conf
-            dest=/usr/local/etc/afp.conf
-            owner=root
-            group=root
-            mode=644
-  notify:
-    - reload netatalk
+#- name: configure afp.conf
+  #template: src=afp.conf
+            #dest=/usr/local/etc/afp.conf
+            #owner=root
+            #group=root
+            #mode=644
+  #notify:
+    #- reload netatalk
 
-- name: start and enable netatalk
+- name: stop and disable netatalk
   service: name=netatalk
-           enabled=yes
+           state=stopped
+           enabled=no
