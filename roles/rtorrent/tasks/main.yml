@@ -1,0 +1,10 @@
+- name: install rtorrent
+  apt:  pkg=rtorrent
+        state=present
+
+- name: configure rtorrent
+template:
+
+- name: create init file
+
+- name: start and enable rtorrent service
